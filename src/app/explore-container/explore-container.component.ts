@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HandleDBService } from '../handleDB.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -8,7 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ExploreContainerComponent implements OnInit {
   @Input() name: string;
 
-  constructor() { }
+  constructor(private test: HandleDBService) { }
+
+  onTap(){
+    this.test.test();
+  }
 
   ngOnInit() {}
 

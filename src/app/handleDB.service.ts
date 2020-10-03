@@ -29,17 +29,16 @@ export class HandleDBService {
     //   avatarUrl: "https://google.com",
     // }).then(console.log.bind(console));
     this.fetchContacts().then(value => {
-        console.log(Object.values(value));
+        console.log(value);
     });
   }
 
-  async fetchContacts() {
-    let contacts: Contact[];
+  async fetchContacts(): Promise<Contact[]> {
     const config = {};
     return await this.apiReq(config).then((res) => {
-    //   let keys = Object.keys(res.json());
-    //   Object.length
     return res.json();
+    }).then(value => {
+        return Object.values(value);
     });
   }
 }
